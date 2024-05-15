@@ -131,12 +131,19 @@ header nav ul li {
     padding: 5px;
 
     @media (max-width: 575px) {
+        /* Se oculta para dar a lugar al burguer menu*/
         display: none;
     }
-
 }
 
 header nav ul li a {
+    padding: 5px;
+}
+
+header nav ul li a:hover {
+    background-color: #ffff;
+    color: black;
+    border-radius: 5px;
     padding: 5px;
 }
 
@@ -147,7 +154,9 @@ header nav ul li:last-child {
     padding: 5px;
 
     @media (max-width: 575px) {
-        display: block;
+        /*Se mantiene hasta agregar un burguer menu*/
+        display: flex;
+        text-align: center;
     }
 }
 
@@ -161,14 +170,17 @@ aside {
     @media (max-width: 1070px) {
         position: fixed;
         top: 0;
-        left: 0;
+
+        left: -14rem;
         background-color: white;
         width: auto;
         height: 100vh;
+        transition: left 0.5s ease; /* Transición suave */
     }
 }
 
-aside .toggle {
+
+.toggle {
     display: none;
 
     @media (max-width: 1070px) {
@@ -176,12 +188,30 @@ aside .toggle {
         background-color: white;
         position: fixed;
         top: 20vh;
-        left: 14rem;
+        left: 0;
         padding: 10px 5px;
+        transition: left 0.5s ease; /* Transición suave */
+
     }
 
     border-radius: 0 50px 50px 0;
+}
 
+.toggle_active {
+
+    /* JS, Toggle sidemenu*/
+    @media (max-width: 1070px) {
+        left: 14rem;
+    }
+
+}
+
+.aside_active {
+
+    /* JS, Toggle sidemenu*/
+    @media (max-width: 1070px) {
+        left: 0;
+    }
 }
 
 .aside_input {
@@ -301,7 +331,9 @@ main article:first-child img {
     width: 100%;
 }
 
-main article button {
+main article a {
+    display: inline-block;
+    /*<a> es un elemento inline, y los márgenes superiores e inferiores no se aplican a elementos inline.*/
     margin: 10px 0 0 0;
     border: 2px solid #28353f;
     color: #fff;
@@ -311,7 +343,7 @@ main article button {
     padding: 5px;
 }
 
-main article button:focus {
+main article a:focus {
     outline: 1rem auto red;
 }
 
@@ -325,11 +357,18 @@ footer {
     color: #ffff;
 }
 
+footer ul {
+    margin-top: 5px;
+    margin-left: 1rem;
+    list-style: circle;
+}
+
 /* FIN Footer */
 /* INDEX INDEX INDEX */
 
-/* LOGIN LOGIN LOGIN */
-#login_page {
+/* LOGIN & SIGNUP LOGIN & SIGNUP LOGIN & SIGNUP*/
+#login_page,
+#signup_page {
     background-color: gray;
     display: flex;
     justify-content: center;
@@ -337,8 +376,8 @@ footer {
     height: 100%;
 }
 
-
-form {
+#login_page form,
+#signup_page form {
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
@@ -347,6 +386,7 @@ form {
     width: 100%;
 
     input[type="text"],
+    input[type="email"],
     input[type="password"],
     button {
         display: block;
@@ -358,18 +398,59 @@ form {
         border-radius: 3px;
         box-sizing: border-box;
     }
-
-    button {
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        cursor: pointer;
-    }
-
-    button:hover {
-        background-color: #0056b3;
-    }
 }
 
+#login_page form h2,
+#signup_page form h2 {
+    margin: 10px 0;
+}
 
-/* LOGIN LOGIN LOGIN */
+#login_page form a:not(:first-child) {
+    text-decoration: underline;
+}
+
+#login_page form a svg {
+    margin-left: 2px;
+}
+
+#login_page button,
+#signup_page button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#login_page button:hover,
+#signup_page button:hover {
+    background-color: #0056b3;
+}
+
+#login_page form a svg,
+#signup_page form a svg {
+    position: relative;
+    top: 2px;
+}
+
+/* LOGIN & SIGNUP LOGIN & SIGNUP LOGIN & SIGNUP*/
+
+/* ARTICLE ARTICLE ARTICLE */
+#article_page main {}
+
+#article_page main img {
+    width: 100vw;
+    height: 250px;
+    object-fit: cover;
+}
+
+#article_page main h3 {
+    text-align: center;
+    margin: 15px;
+    font-size: 2rem;
+}
+
+#article_page main p {
+    text-align: center;
+}
+
+/* ARTICLE ARTICLE ARTICLE */
