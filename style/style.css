@@ -159,7 +159,6 @@ header nav ul li:last-child {
         text-align: center;
     }
 }
-
 /* FIN Header */
 
 /* Aside */
@@ -305,8 +304,12 @@ main article {
     border-radius: 5px;
     padding: 10px;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin: 5px auto;
     width: 49.5%;
+    min-height: 20rem;
 
     @media (max-width: 1070px) {
         width: 100%;
@@ -322,7 +325,7 @@ main article:first-child {
 main article img {
     border-radius: 5px;
     object-fit: cover;
-    height: 125px;
+    height: 150px;
     width: 100%;
 }
 
@@ -332,8 +335,7 @@ main article:first-child img {
 }
 
 main article a {
-    display: inline-block;
-    /*<a> es un elemento inline, y los márgenes superiores e inferiores no se aplican a elementos inline.*/
+    display: inline;
     margin: 10px 0 0 0;
     border: 2px solid #28353f;
     color: #fff;
@@ -341,6 +343,7 @@ main article a {
     cursor: pointer;
     border-radius: 5px;
     padding: 5px;
+    width: 82px;
 }
 
 main article a:focus {
